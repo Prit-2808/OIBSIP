@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DayList — To-Do App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="page">
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">✓</span>
+        <div>
+          <h1>DayList</h1>
+          <p>Add, track, and complete your daily tasks</p>
+        </div>
+      </div>
+      <p class="topbar-date" id="todayDate"></p>
+    </header>
+
+    <section class="stats">
+      <div class="stat-card">
+        <span class="stat-icon icon-total">▦</span>
+        <div>
+          <p class="stat-label">Total Tasks</p>
+          <p class="stat-num" id="totalCount">0</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon icon-pending">◔</span>
+        <div>
+          <p class="stat-label">Pending</p>
+          <p class="stat-num" id="pendingCount">0</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon icon-done">✓</span>
+        <div>
+          <p class="stat-label">Completed</p>
+          <p class="stat-num" id="completedCount">0</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="layout">
+      <aside class="form-card">
+        <h2><span class="plus">+</span> Add New Task</h2>
+        <form id="taskForm">
+          <label for="taskInput">Title <span class="req">*</span></label>
+          <input
+            type="text"
+            id="taskInput"
+            placeholder="Enter your task"
+            autocomplete="off"
+            required
+            />
+
+          <button type="submit" class="btn-add">+ Add Task</button>
+        </form>
+      </aside>
+
+      <main class="lists">
+
+        <div class="list-tabs">
+          <button class="tab-btn active" data-filter="all">All</button>
+          <button class="tab-btn" data-filter="pending">Pending Tasks</button>
+          <button class="tab-btn" data-filter="completed">Completed Tasks</button>
+        </div>
+
+        <ul class="task-list" id="taskList"></ul>
+        <p class="empty-msg" id="emptyMsg">No tasks here.</p>
+
+      </main>
+
+    </div>
+
+    <footer class="footer">
+      <p>DayList — Your daily task manager</p>
+    </footer>
+  </div>
+
+  <div class="modal-overlay" id="editOverlay">
+    <div class="modal">
+      <h3>Edit Task</h3>
+      <label for="editTitle">Title</label>
+      <input type="text" id="editTitle" />
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" id="editCancelBtn">Cancel</button>
+        <button type="button" class="btn-save" id="editSaveBtn">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
